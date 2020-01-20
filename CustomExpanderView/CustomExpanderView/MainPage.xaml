@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:customExpanderView="clr-namespace:CustomExpanderView;assembly=CustomExpanderView"
+             mc:Ignorable="d"
+             x:Class="CustomExpanderView.MainPage">
+
+    <StackLayout Margin="14,40,14,10">
+        <customExpanderView:CustomExpander Title="Items">
+            <customExpanderView:CustomExpander.BodyContentTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Label Text="Item 1"></Label>
+                        <Label Text="Item 2"></Label>
+                        <Label Text="Item 3"></Label>
+                        <Label Text="Item 4"></Label>
+                        <Label Text="Item 5"></Label>
+                    </StackLayout>
+                </DataTemplate>
+            </customExpanderView:CustomExpander.BodyContentTemplate>
+        </customExpanderView:CustomExpander>
+    </StackLayout>
+
+</ContentPage>

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CustomExpanderView.CustomExpander">
+
+    <Frame CornerRadius="5"
+           BorderColor="#E1E1E1"
+           BackgroundColor="#FFFFFF"
+           HasShadow="False"
+           Padding="0">
+
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <!-- Header View -->
+                <RowDefinition Height="Auto" />
+                <!-- Content View -->
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0"
+                  Padding="8,6"
+                  BackgroundColor="#F5F5F5">
+                <Label Text="{Binding Title}"
+                       VerticalOptions="Center"
+                       FontSize="14" />
+                <Image HorizontalOptions="End"
+                       VerticalOptions="Center"
+                       HeightRequest="14">
+                    <Image.Source>
+                        <FileImageSource File="{Binding ExpandIcon}" />
+                    </Image.Source>
+                </Image>
+
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="HeaderContent_OnTapped"
+                                          NumberOfTapsRequired="1" />
+                </Grid.GestureRecognizers>
+
+            </Grid>
+
+            <!-- Header Bottom Border -->
+            <BoxView Grid.Row="0"
+                     Color="#EBEBEB"
+                     HeightRequest="1"
+                     Opacity="0.8"
+                     VerticalOptions="End"
+                     HorizontalOptions="FillAndExpand"
+                     IsVisible="{Binding IsExpanded}" />
+
+            <!-- Content View -->
+            <ContentView Grid.Row="1"
+                         x:Name="BodyContentView"
+                         Padding="8,6"
+                         IsVisible="False" />
+        </Grid>
+    </Frame>
+</ContentView>
